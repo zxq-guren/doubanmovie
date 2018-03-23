@@ -1,0 +1,50 @@
+<!--pages/search.wxml-->
+<!--查询-->
+<view class="container page_query">
+
+  <view class="section">
+    <input type="text" value="{{searchValue}}" class="searchMove" placeholder="查询片名" auto-focus bindfocus="focusSearch" bindinput="searchActiveChangeinput" />
+    <icon type="search" />
+  </view>
+
+  <view class="movesList" wx:if="{{isShowQueryMoves}}">
+    <block wx:for="{{searchMoves}}" wx:key="item">
+      <view class="move-item">
+        <text class="item-name" bindtap="showDetailInfo" data-info="{{item}}">{{item.title}}\n</text>
+      </view>
+    </block>
+  </view>
+
+  <view class="classname" wx:if="{{isShowDetailInfo}}">
+    <view class="list_img">
+      <image src="{{info.images.medium}}"></image>
+    </view>
+
+    <view class="list_info">
+      <text class="move-item_fontWeight">片名:</text>
+      <text class="move-item_moveName">{{info.title}}\n</text>
+
+      <view>
+        <text class="move-item_fontWeight">主演:</text>
+        <block wx:for="{{info.casts}}" wx:key="{{index}}">
+          <text class="move-item_fontSize">{{item.name}} </text>
+        </block>
+      </view>
+
+      <view>
+        <text class="move-item_fontWeight">导演:</text>
+        <block wx:for="{{info.directors}}" wx:key="{{index}}">
+          <text class="move-item_fontSize">{{item.name}} </text>
+        </block>
+      </view>
+
+      <view>
+        <text class="move-item_fontWeight">类型:</text>
+        <block wx:for="{{info.genres}}" wx:key="{{index}}">
+          <text class="move-item_fontSize">{{item}} </text>
+        </block>
+      </view>
+
+    </view>
+  </view>
+</view>

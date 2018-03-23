@@ -1,0 +1,28 @@
+<!--detail.wxml-->
+<!-- 轮播图 -->
+<view class="container">
+	<swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000">
+	  	<block wx:for="{{imgUrls}}">
+	   		 <swiper-item>
+	     	 <image src="{{item}}" mode='aspectFill'/>
+	    	</swiper-item>
+	  	</block>
+	</swiper>
+
+<!--首页展示-->
+	<scroll-view class="page-body" scroll-y="true">
+		<navigator url="../movie/movie?id={{item.id}}" wx:for="{{movies}}">
+			<view class="item">
+				<image class="poster" src="{{item.images.small}}"></image>
+				<view class="meta">
+					<text class="title">{{item.title}}</text>
+					<text class="sub-title">{{item.original_title}}({{item.year}})</text>
+					<text class="artists"><text wx:for="{{item.directors}}">{{item.name}}</text></text>
+				</view>
+				<view class="rating">
+					<text>{{item.rating.average}}</text>
+				</view>
+			</view>
+		</navigator>
+	</scroll-view>
+</view>

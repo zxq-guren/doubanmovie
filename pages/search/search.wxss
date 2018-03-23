@@ -1,0 +1,33 @@
+/* pages/index.wxss */
+
+.page_query {
+  min-height: 100%;
+  background-color: #666;
+}
+
+.searchMove {
+  width: 200px;
+  margin: 10px 0px 20px 60px;
+}
+
+view>input {
+  border: 1px solid #fff;
+  border-radius: 15px;
+  width: 250px;
+  padding: 5px;
+  margin: 10px;
+  color: #fff;
+  display: inline-block;
+}
+
+view>icon {
+  float: right;
+  margin: 20px 60px 0 0;
+}
+.move-item {
+  border-bottom: 1px solid #999;
+}
+.item-name {
+  line-height: 2rem;
+  padding: 0.1rem 0.5rem; 
+}
